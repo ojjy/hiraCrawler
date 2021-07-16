@@ -17,7 +17,7 @@ def add_lst(code):
         global failed_lst
         failed_lst.append(code)
 
-class OpendataCrawler(object):
+class DiagBhvInfoCrawler(object):
     def __init__(self, url, md_code, data_btn ,directory , by):
         self.url = url
         self.md_code = md_code
@@ -223,17 +223,13 @@ if __name__ == "__main__":
     # directory = 'C:\\Users\\sm\\Downloads\\'
 
     # mdfeeCd_lst : 진료행위 코드 리스트
-    df = pd.read_excel('csv_file/edicode.xlsx')
+    df = pd.read_excel('csv_file/최신edicode7차.xlsx')
     print(df)
     mdfeeCd_lst = df['EDICODE']
-    global failed_lst
-    failed_lst = []
-    global count
-    count = 0
 
     # url, md_code, data_btn , count , directory , by):
     ## crawler_ins1 : 요양기관종별 데이터 크롤링
     print ('crawling Data ..............')
-    crawler_ins1 = OpendataCrawler(url, mdfeeCd_lst, institution_btn, directory , by_institution)
+    crawler_ins1 = DiagBhvInfoCrawler(url, mdfeeCd_lst, institution_btn, directory , by_institution)
     # crawler_ins1 = OpendataCrawler(url, mdfeeCd_lst, location_btn, directory , by_location)
     crawler_ins1.crawl_data()

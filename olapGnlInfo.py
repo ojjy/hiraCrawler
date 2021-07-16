@@ -195,7 +195,7 @@ if __name__ == "__main__":
     # directory = 'C:\\Users\\sm\\Downloads\\'
 
     # mdfeeCd_lst : 진료행위 코드 리스트
-    df = pd.read_excel('csv_file/주성분코드.xlsx')
+    df = pd.read_excel('csv_file/주성분코드_2차.xlsx')
     print(df)
     gnlNmCd_list = df['주성분코드']
 
@@ -203,5 +203,4 @@ if __name__ == "__main__":
     ## crawler_ins1 : 요양기관종별 데이터 크롤링
     print ('crawling Data ..............')
     crawler_ins1 = olapGnlInfoCrawler(url, gnlNmCd_list, institution_btn, directory , by_institution)
-    # crawler_ins1 = OpendataCrawler(url, mdfeeCd_lst, location_btn, directory , by_location)
     crawler_ins1.crawl_data()
